@@ -1,25 +1,15 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import TeamInfo from "./data.json";
+import TeamListing from "./components/TeamListing";
 
 class App extends Component {
   render() {
+    console.log(TeamInfo.teams);
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <h1>NFL Teams</h1>
+        <TeamListing teams={TeamInfo.teams}/>
       </div>
     );
   }
