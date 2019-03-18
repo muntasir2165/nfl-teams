@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import TeamInfo from "./data.json";
 import TeamListing from "./components/TeamListing";
+import TeamRoster from "./components/TeamRoster";
 
 class App extends Component {
   constructor(props) {
@@ -19,13 +20,15 @@ class App extends Component {
   }
 
   render() {
-    // console.log(TeamInfo.teams);
-    console.log(this.state.teams);
+    // console.log(this.state.teams);
     return (
+      <Router>
       <div className="App">
         <h1>NFL Teams</h1>
-        <TeamListing teams={this.state.teams}/>
+        <Route exact path="/" render={() => <TeamListing teams={this.state.teams}/>} />
+        <Route path="/team-roster/:id" render={(props) => <TeamRoster {...props} />} />
       </div>
+      </Router>
     );
   }
 }
