@@ -1,9 +1,10 @@
 import React from "react";
 import "./TeamListing.css";
+import TeamRoster from "../TeamRoster";
 
 const TeamListing = (props) => (
-  <div>
-      {props.teams ? props.teams.map(team => (<div key={team.id}>{team.fullName} {team.nickName} {team.roster.length}</div>)) : ""}
+  <div className="container">
+      {props.teams ? props.teams.map(team => (<TeamRoster key={team.id} teamFullName={team.fullName} teamNickName={team.nickName} teamRosterLength={team.roster.length}></TeamRoster>)) : ""}
   </div>
 );
 
